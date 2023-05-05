@@ -12,18 +12,20 @@
     </div>
   </div>
   <div class="container success">
-    <h4> ثبت نام کاربر</h4>
+
     <form method="post" class="contact">
         {% csrf_token %}
       <div class="row">
                 <div class="col-sm-6 col-md-offset-3">
+                    <h4 > ثبت نام کاربر</h4>
 						<form method="post" action="{% url 'user:register' %}" >
-                            {% csrf_token %}
+                             {% csrf_token %}
                             {{ register_form }}
+
       <div class="row clearfix">
         <div class="col-sm-12">
           <div class="pull-right">
-            <button type="submit" name="submit" class="greybutton">ارسال</button>
+            <button type="submit" name="submit" class="greybutton" >ثبت نام </button>
           </div>
         </div>
       </div>

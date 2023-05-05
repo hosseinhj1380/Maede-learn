@@ -8,11 +8,11 @@ from user_module.models import User
 class RegisterForm(forms.Form):
     email = forms.CharField(label="ایمیل",
                             widget=forms.TextInput(attrs={
-                                'class': 'req',
+                                'class': "req",
                                 'placeholder': "ایمیل",
                                 'name': 'email',
                                 'type': "email"
-                            })),
+                            }))
     password = forms.CharField(
         label='رمز عبور',
         widget=forms.PasswordInput(attrs={
