@@ -5,21 +5,29 @@
 {% endblock %}
 
 {% block body %}
-<div class="container">
-		<section id="form"><!--form-->
-			<div class="row">
-
-				<div class="col-sm-6 col-md-offset-3">
-					<div class="signup-form"><!--sign up form-->
-						<h2>ثبت نام کاربـر جدیـد</h2>
+    <body id="contact" class="page">
+<div class="page-heading text-center">
+    <div class="container">
+      <h2> ثبت نام </h2>
+    </div>
+  </div>
+  <div class="container success">
+    <h4> ثبت نام کاربر</h4>
+    <form method="post" class="contact">
+        {% csrf_token %}
+      <div class="row">
+                <div class="col-sm-6 col-md-offset-3">
 						<form method="post" action="{% url 'user:register' %}" >
                             {% csrf_token %}
                             {{ register_form }}
-							<button type="submit" class="btn btn-default">ثبت نام</button>
-						</form>
-					</div><!--/sign up form-->
-				</div>
-			</div>
-		</section>
-	</div>
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="pull-right">
+            <button type="submit" name="submit" class="greybutton">ارسال</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+      </div></form></div>
 {% endblock %}
