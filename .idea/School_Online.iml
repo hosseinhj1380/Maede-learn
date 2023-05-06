@@ -30,6 +30,7 @@
         <option value="$MODULE_DIR$/course_module/templates" />
         <option value="$MODULE_DIR$/user_module/templates" />
         <option value="$MODULE_DIR$/cart_module/templates" />
+        <option value="$MODULE_DIR$/backup_module/templates" />
       </list>
     </option>
   </component>

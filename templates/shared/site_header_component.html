@@ -67,7 +67,7 @@
               </li>
               <li> <a href="#">پشتیبانی</a>
                 <ul class="submenu submenu-list">
-                  <li><a href="how-it-works.html">چگونه کار میکند</a></li>
+                  <li><a href="{% url "backup:info-page" %}">چگونه کار میکند</a></li>
                   <li><a href="pricing.html">قیمت ها</a></li>
                   <li><a href="services-1.html">خدمات 1</a></li>
                   <li><a href="services-2.html">خدمات 2</a></li>
@@ -81,8 +81,12 @@
             </ul>
           </nav>
         </div>
-        <a href="{% url 'user:login' %}" class="blueplay login">ورود</a> <a href="{% url "user:register" %}" class="register">ثبت نام</a>
-        <div class="cart"> <a href="#"><i class="zmdi zmdi-case zmdi-hc-lg"></i><span>2</span></a>
+          {% if request.user.is_authenticated %}
+              {% if request.user.is_superuser %}
+                    <a href="/admin" class="register"> پنل ادمین</a>
+              {% endif %}
+              <a href="{% url "user:logout" %}" class="register">خروج</a>
+                      <div class="cart"> <a href="#"><i class="zmdi zmdi-case zmdi-hc-lg"></i><span>2</span></a>
           <div class="cart-container">
             <h6>سبد خرید (2)</h6>
             <div class="cart-item clearfix"> <img src="/static/assets/img/cart1.jpg" alt="cart item" class="pull-left"> <a href="#">چگونه یک طراح UX شویم</a>
@@ -96,6 +100,10 @@
             <div class="cart-controls text-center"> <a href="#" class="checkout">پرداخت</a> <a href="#" class="viewcart">نمایش سبد</a> <a href="#" class="addcourse">افزودن دوره</a> </div>
           </div>
         </div>
+          {% else %}
+        <a href="{% url 'user:login' %}" class="blueplay login">ورود</a>
+          <a href="{% url "user:register" %}" class="register">ثبت نام</a>
+            {% endif %}
         <div class="search"> <a href="#" class="search"><i class="zmdi zmdi-search zmdi-hc-lg"></i></a>
           <div class="search-something">
             <input type="search" placeholder="دنبال چه چیزی هستید؟">

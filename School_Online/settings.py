@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_render_partial',
     'user_module',
     'cart_module',
+    'backup_module'
 
 
 ]
@@ -130,3 +131,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 AUTH_USER_MODEL = 'user_module.User'
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
+EMAIL_PORT = 587

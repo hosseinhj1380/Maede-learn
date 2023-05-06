@@ -4,7 +4,8 @@
     ورود
 {% endblock %}
 {% block body %}
-     <body id="blog-2" class="page">
+
+
 
     <div class="container">
         <section id="form"><!--form-->
@@ -15,7 +16,7 @@
                         <form method="post" action="{% url 'user:login' %}">
                             {% csrf_token %}
                             {{ login_form }}
-
+                            <p><a href="{% url "user:forget_password" %}">رمز عبور را فراموش کردم</a></p>
 
 
                             <button type="submit" class="btn btn-default">ورود</button>
