@@ -2884,3 +2884,6 @@ header .bluebutton {
     text-align: center;
     width: 50px;
 }
+.errorlist li {
+	color: #c7254e;
+}
