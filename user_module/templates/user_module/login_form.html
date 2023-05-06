@@ -1,29 +1,35 @@
 {% extends 'shared/index.html' %}
 
 {% block title %}
-    ورود
+    register
 {% endblock %}
+
 {% block body %}
-
-
-
+    <body id="contact" class="page">
+<div class="page-heading text-center">
     <div class="container">
-        <section id="form"><!--form-->
-            <div class="row">
-                <div class="col-sm-6 col-md-offset-3">
-                    <div class="signup-form"><!--sign up form-->
-                        <h2>ورود به حساب کاربری</h2>
-                        <form method="post" action="{% url 'user:login' %}">
-                            {% csrf_token %}
-                            {{ login_form }}
-                            <p><a href="{% url "user:forget_password" %}">رمز عبور را فراموش کردم</a></p>
-
-
-                            <button type="submit" class="btn btn-default">ورود</button>
-                        </form>
-                    </div><!--/sign up form-->
-                </div>
-            </div>
-        </section>
+      <h2> ورود  </h2>
     </div>
+  </div>
+  <div class="container success">
+
+    <form method="post" class="contact">
+        {% csrf_token %}
+      <div class="row">
+                <div class="col-sm-6 col-md-offset-3">
+                    <h4 > ورود کاربر</h4>
+						<form method="post" action="{% url 'user:login' %}" >
+                             {% csrf_token %}
+                            {{ login_form }}
+    <p><a href="{% url "user:forget_password" %}">فراموشی رمز عبور</a></p>
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="pull-right">
+            <button type="submit" name="submit" class="greybutton" >ورود </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+      </div></form></div>
 {% endblock %}

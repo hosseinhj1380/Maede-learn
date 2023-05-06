@@ -6,13 +6,13 @@ from user_module.models import User
 
 
 class RegisterForm(forms.Form):
-    email = forms.EmailField(
-        label='آدرس ایمیل',
-        widget=forms.EmailInput(attrs={
-            'class': 'signup-form',
-            'type': "email",
-            'placeholder': "آدرس ایمیل",
-        }))
+    email = forms.CharField(label="ایمیل",
+                            widget=forms.TextInput(attrs={
+                                'class': "req",
+                                'placeholder': "ایمیل",
+                                'name': 'email',
+                                'type': "email"
+                            }))
     password = forms.CharField(
         label='رمز عبور',
         widget=forms.PasswordInput(attrs={
@@ -53,6 +53,7 @@ class LoginForm(forms.Form):
             'placeholder': "رمـز عبـور",
         }))
 
+
 class ForgetPassForm(forms.Form):
     email = forms.EmailField(
         label='آدرس ایمیل',
@@ -79,4 +80,3 @@ class ResetPasswordForm(forms.Form):
             'type': "password",
             'placeholder': "تایید رمـز عبـور",
         }))
-

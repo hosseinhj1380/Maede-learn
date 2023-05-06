@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django_render_partial',
     'user_module',
     'cart_module',
-    'backup_module'
+    'backup_module',
+    'site_module'
 
 
 ]
