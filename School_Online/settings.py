@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'user_module',
     'cart_module',
     'backup_module',
-    'site_module'
+    'site_module',
+    'article_module'
 
 
 ]
