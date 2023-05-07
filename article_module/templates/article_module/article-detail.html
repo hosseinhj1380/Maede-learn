@@ -1,0 +1,151 @@
+{% extends "shared/index.html" %}
+
+{% block title %}
+جزییات مقاله
+{% endblock %}
+{% block body %}
+
+<body id="blog-1" class="page">
+<main>
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2>کارگاه طراحی خلاقانه ترین وبسایت 2017</h2>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9"> <img src="{{ article.image.url }}" alt="blog-single" class="resp-img">
+        <h3>{{ article.title }}</h3>
+        <div class="author"> <a href="#">محمد زارعی</a><span> - 2 شهریور 1396</span> </div>
+            <p>{{ article.text }}</p>
+          <div class="about-author">
+          <ul class="social pull-right">
+            <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
+            <li> <a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
+            <li> <a href="#"><i class="zmdi zmdi-google-old"></i></a></li>
+            <li> <a href="#"><i class="zmdi zmdi-pinterest"></i></a></li>
+            <li> <a href="#"><i class="zmdi zmdi-email"></i></a></li>
+            <li> <a href="#"><i class="zmdi zmdi-globe-alt"></i></a></li>
+          </ul>
+          <h4>درباره نویسنده</h4>
+          <img src="/static/assets/img/avatar/2.png" alt="Avatar" class="pull-left"> <a class="teacher-name" href="#">محمد زارعی</a>
+          <p>طراح</p>
+          <p class="abs"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
+        </div>
+        <h4>نظرات</h4>
+        <div class="comment clearfix"> <img src="/static/assets/img/avatar/8.png" alt="Avatar" class="pull-left"> <a href="#">مهسا فراهانی</a> <span class="postedon">14 مرداد 1396 در 8:45 ق.ظ</span>
+          <p class="abs"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود </p>
+          <a href="#" class="pull-right greybutton">پاسخ</a> </div>
+        <div class="comment subcomment clearfix"> <img src="/static/assets/img/avatar/3.png" alt="Avatar" class="pull-left"> <a href="#">محسن حسینی</a> <span class="postedon">14 مرداد 1396 در 8:45 ق.ظ</span>
+          <p class="abs"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود </p>
+          <a href="#" class="pull-right greybutton">پاسخ</a> </div>
+        <h4>ارسال دیدگاه</h4>
+        <form class="contact">
+          <div class="row">
+            <div class="col-sm-4">
+              <label class="req">نام</label>
+              <input type="text" name="name" placeholder="نام خود را وارد کنید" required>
+            </div>
+            <div class="col-sm-4">
+              <label class="req">پست الکترونیکی</label>
+              <input type="text" name="email" placeholder="پست الکترونیکی خود را وارد کنید" required>
+            </div>
+            <div class="col-sm-4">
+              <label>وبسایت</label>
+              <input type="text" name="site" placeholder="https://">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <label class="req">پیام</label>
+              <textarea name="name" placeholder="پیامتان را بنویسید" required></textarea>
+            </div>
+          </div>
+          <div class="row clearfix">
+            <div class="col-sm-12">
+              <div class="pull-right">
+                <button class="greybutton">ارسال</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-3 blog-sidebar">
+        <div class="search-something">
+          <input type="search" placeholder="دنبال چه چیزی هستید؟">
+          <a href="#"><i class="zmdi zmdi-search"></i></a> </div>
+        <h4>پست های اخیر</h4>
+        <div class="recent-post clearfix"> <img src="/static/assets/img/recent1.jpg" alt="recent" class="pull-left"> <a href="#">آموزش روتوش چهره در فتوشاپ</a>
+          <div class="author"> <a href="#">فتوشاپ</a><span>18 فروردین 1395</span> </div>
+        </div>
+        <div class="recent-post clearfix"> <img src="/static/assets/img/recent2.jpg" alt="recent" class="pull-left"> <a href="#">آموزش راه اندازی وبلاگ شخصی</a>
+          <div class="author"> <a href="#">طراحی وب</a><span>11 مهر 1395</span> </div>
+        </div>
+        <div class="recent-post clearfix"> <img src="/static/assets/img/recent3.jpg" alt="recent" class="pull-left"> <a href="#">آموزش برنامه نویسی به زبان پایتون</a>
+          <div class="author"> <a href="#">پایتون</a><span>01 آبان 1395</span> </div>
+        </div>
+        <div class="categories">
+          <h6>دسته بندی ها</h6>
+          <ul>
+            <li><a href="#">کسب و کار (18)</a></li>
+            <li><a href="#">سیستم مدیریت محتوا (14)</a></li>
+            <li><a href="#">طراحی (17)</a></li>
+            <li><a href="#">توسعه (23)</a></li>
+            <li><a href="#">علوم انسانی (17)</a></li>
+            <li><a href="#">پزشکی (8)</a></li>
+            <li><a href="#">موزیک (47)</a></li>
+            <li><a href="#">فوتوگرافی (68)</a></li>
+            <li><a href="#">فتوشاپ (87)</a></li>
+            <li><a href="#">ای تی و نرم افزار (41)</a></li>
+            <li><a href="#">سبک زندگی (54)</a></li>
+            <li><a href="#">زبان (83)</a></li>
+            <li><a href="#">سئو (39)</a></li>
+            <li><a href="#">بازاریابی (44)</a></li>
+            <li><a href="#">ارائه ویدیویی (33)</a></li>
+          </ul>
+        </div>
+        <div class="popular-courses index-3-categories">
+          <h4>محبوب ترین دوره ها</h4>
+          <div class="courses-side-slick">
+            <div class="category-with-bg text-center cat1">
+              <h5>سیستم مدیریت محتوا</h5>
+              <p>آموزش برای سیستم های مختلف مثل وردپرس</p>
+              <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
+            <div class="category-with-bg text-center cat2">
+              <h5>تجربه کاربری / طراح UX</h5>
+              <p>کارگاه طراحی UX</p>
+              <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
+            <div class="category-with-bg text-center cat3">
+              <h5>تایپوگرافی و نویسندگی</h5>
+              <p>کار با ایندیزاین</p>
+              <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
+          </div>
+        </div>
+        <h4>پست های اینستاگرام</h4>
+        <ul class="instagram-feed">
+          <li><a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram3.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram1.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram2.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram4.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram5.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram6.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram7.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram8.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram2.jpg"></li>
+        </ul>
+        <h4>محبوب ترین برچسب ها</h4>
+        <ul class="popular-tags">
+          <li><a href="#">خلاقانه</a></li>
+          <li><a href="#">قالب وردپرس</a></li>
+          <li><a href="#">طراحی وب</a></li>
+          <li><a href="#">HTML 5</a></li>
+          <li><a href="#">چند منظوره</a></li>
+          <li><a href="#">قالب</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+</body>
+{% endblock %}
