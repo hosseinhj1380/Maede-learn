@@ -1,175 +1,105 @@
-{% extends 'include/layout.html' %}
+{% extends 'shared/index.html' %}
 
 {% block title %}
     مقالات 
 {% endblock %}
 
 {% block body %}
-    	<section>
-		<div class="container">
-			<div class="row">
-				
-				<div class="col-sm-9">
-					<div class="blog-post-area">
-						<h2 class="title text-center">آخریـن اخبـار</h2>
-                    {% for articles in article %}
-
-						<div class="single-blog-post">
-							<h3>{{ articles.title }}</h3>
-							<div class="post-meta">
-								<ul>
-									<li><i class="fa fa-user"></i> کاربـر 1</li>
-									<li><i class="fa fa-clock-o"></i> 17:20 ب.ظ</li>
-									<li><i class="fa fa-calendar"></i> 28 تیـر 1397</li>
-								</ul>
-								<span>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star-half-o"></i>
-								</span>
-							</div>
-							<a href="">
-								<img src="{{ articles.image.url }}" alt="">
-							</a>
-							<p>{{ articles.short_description }}</p>
-							<a href="{% url "article:article-detail" slug=articles.slug %}" class="btn btn-primary" href="">ادامـه مطلب</a>
-						</div>
-                    {% endfor %}
+    <body id="blog-2" class="page">
+    <main>
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2>بلاگ</h2>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+            {% for articles in article %}
+                    <div class="blog-item clearfix"> <img src="{{ articles.image.url }}" alt="blog-single" class="resp-img">
+          <h3>{{ articles.title }}</h3>
+          <div class="author"> <a href="#">طراحی وب</a><span> - 4 شهریور 1396 توسط محمد زارعی</span> </div>
+          <p class="abs"> {{ articles.short_description }} <a href="{% url "article:article-detail"  articles.slug %}" class="pull-right greybutton">خواندن ادامه</a> </div>
+            {% endfor %}
 
 
-						<div class="pagination-area">
-							<ul class="pagination">
-                                {% if page_obj.has_previous %}
-                                    <li><a href="?page={{ page_obj.previous_page_number }}"><i class="fa fa-angle-double-left"></i></a>قبلی</li>
-                                {% endif %}
-                                    {% for pages in paginator.page_range %}
-                                    <li><a href="page=?{{ pages }}"  class=" {% if page_obj.number == pages%} active {% endif %} ">{{ pages }}</a></li>
-                                    {% endfor %}
-                                 {% if page_obj.has_next %}
-                                    <li><a href="?page={{ page_obj.next_page_number }}"><i class="fa fa-angle-double-right"></i></a></li>
-                                {% endif %}
-
-								<li><a href="">بعدی </a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				
-				<div class="col-sm-3">
-					<div class="left-sidebar">
-						<h2>دسته بندی محصولات</h2>
-						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											دسته 1
-										</a>
-									</h4>
-								</div>
-								<div id="sportswear" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="">محصول 1 </a></li>
-											<li><a href="">محصول 2 </a></li>
-											<li><a href="">محصول 3 </a></li>
-											<li><a href="">محصول 4</a></li>
-											<li><a href="">محصول 5</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title">
-										<a data-toggle="collapse" data-parent="#accordian" href="#mens">
-											<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-											دسته 2
-										</a>
-									</h4>
-								</div>
-								<div id="mens" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul>
-											<li><a href="">محصول 1 </a></li>
-											<li><a href="">محصول 2 </a></li>
-											<li><a href="">محصول 3 </a></li>
-											<li><a href="">محصول 4</a></li>
-											<li><a href="">محصول 5</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">محصول 1</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">محصول 2</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">محصول 3</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">محصول 4</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">محصول 5</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">محصول 6</a></h4>
-								</div>
-							</div>
-							<div class="panel panel-default">
-								<div class="panel-heading">
-									<h4 class="panel-title"><a href="#">محصول 7</a></h4>
-								</div>
-							</div>
-						</div><!--/category-productsr-->
-					
-						<div class="brands_products"><!--brands_products-->
-							<h2>برنـد ها</h2>
-							<div class="brands-name">
-								<ul class="nav nav-pills nav-stacked">
-									<li><a href=""> <span class="pull-left">(50)</span>برنـد 1</a></li>
-									<li><a href=""> <span class="pull-left">(56)</span>برنـد 2</a></li>
-									<li><a href=""> <span class="pull-left">(27)</span>برنـد 3</a></li>
-									<li><a href=""> <span class="pull-left">(32)</span>برنـد 4</a></li>
-									<li><a href=""> <span class="pull-left">(5)</span>برنـد 5</a></li>
-								</ul>
-							</div>
-						</div><!--/brands_products-->
-						
-						<div class="price-range"><!--price-range-->
-							<h2>فیلتـر قیمـت</h2>
-							<div class="well">
-								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="1000000" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-								 <b>1.000.000 ريال</b> <b class="pull-left">0 ريال</b>
-							</div>
-						</div><!--/price-range-->
-						
-						<div class="shipping text-center"><!--shipping-->
-							<img src="../static/images/home/shipping.jpg" alt="" />
-						</div><!--/shipping-->
-						
-					</div>
-				</div>
-				
-			</div>
-		</div>
-	</section>
+        <div class="paginations"> <a class="prev" href="#"><i class="zmdi zmdi-chevron-right"></i>قبلی</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">6</a> <a class="next" href="#">بعدی<i class="zmdi zmdi-chevron-left"></i></a> </div>
+      </div>
+      <div class="col-lg-3 blog-sidebar">
+        <div class="search-something">
+          <input type="search" placeholder="دنبال چه چیزی هستید؟">
+          <a href="#"><i class="zmdi zmdi-search"></i></a> </div>
+        <h4>پست های اخیر</h4>
+        <div class="recent-post clearfix"> <img src="/static/assets/img/recent1.jpg" alt="recent" class="pull-left"> <a href="#">آموزش روتوش چهره در فتوشاپ</a>
+          <div class="author"> <a href="#">فتوشاپ</a><span>18 فروردین 1395</span> </div>
+        </div>
+        <div class="recent-post clearfix"> <img src="/static/assets/img/recent2.jpg" alt="recent" class="pull-left"> <a href="#">آموزش راه اندازی وبلاگ شخصی</a>
+          <div class="author"> <a href="#">طراحی وب</a><span>11 مهر 1395</span> </div>
+        </div>
+        <div class="recent-post clearfix"> <img src="/static/assets/img/recent3.jpg" alt="recent" class="pull-left"> <a href="#">آموزش برنامه نویسی به زبان پایتون</a>
+          <div class="author"> <a href="#">پایتون</a><span>01 آبان 1395</span> </div>
+        </div>
+        <div class="categories">
+          <h6>دسته بندی ها</h6>
+          <ul>
+            <li><a href="#">کسب و کار (18)</a></li>
+            <li><a href="#">سیستم مدیریت محتوا (14)</a></li>
+            <li><a href="#">طراحی (17)</a></li>
+            <li><a href="#">توسعه (23)</a></li>
+            <li><a href="#">علوم انسانی (17)</a></li>
+            <li><a href="#">پزشکی (8)</a></li>
+            <li><a href="#">موزیک (47)</a></li>
+            <li><a href="#">فوتوگرافی (68)</a></li>
+            <li><a href="#">فتوشاپ (87)</a></li>
+            <li><a href="#">ای تی و نرم افزار (41)</a></li>
+            <li><a href="#">سبک زندگی (54)</a></li>
+            <li><a href="#">زبان (83)</a></li>
+            <li><a href="#">سئو (39)</a></li>
+            <li><a href="#">بازاریابی (44)</a></li>
+            <li><a href="#">ارائه ویدیویی (33)</a></li>
+          </ul>
+        </div>
+        <div class="popular-courses index-3-categories">
+          <h4>محبوب ترین دوره ها</h4>
+          <div class="courses-side-slick">
+            <div class="category-with-bg text-center cat1">
+              <h5>سیستم مدیریت محتوا</h5>
+              <p>آموزش برای سیستم های مختلف مثل وردپرس</p>
+              <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
+            <div class="category-with-bg text-center cat2">
+              <h5>تجربه کاربری / طراح UX</h5>
+              <p>کارگاه طراحی UX</p>
+              <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
+            <div class="category-with-bg text-center cat3">
+              <h5>تایپوگرافی و نویسندگی</h5>
+              <p>کار با ایندیزاین</p>
+              <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
+          </div>
+        </div>
+        <h4>پست های اینستاگرام</h4>
+        <ul class="instagram-feed">
+          <li><a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram3.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram1.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram2.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram4.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram5.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram6.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram7.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram8.jpg"></li>
+          <li> <a href="#"></a><img alt="instagram image" src="/static/assets/img/instagram/instagram2.jpg"></li>
+        </ul>
+        <h4>محبوب ترین برچسب ها</h4>
+        <ul class="popular-tags">
+          <li><a href="#">خلاقانه</a></li>
+          <li><a href="#">قالب وردپرس</a></li>
+          <li><a href="#">طراحی وب</a></li>
+          <li><a href="#">HTML 5</a></li>
+          <li><a href="#">چند منظوره</a></li>
+          <li><a href="#">قالب</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+    </body>
 {% endblock %}
