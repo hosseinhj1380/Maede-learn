@@ -20,13 +20,9 @@ class ArticlesView(ListView):
         return articles_data
 
 
-class ArticleDetailView(DetailView,FormView):
-    model = Article
+class ArticleDetailView(DetailView,FormMixin):
     template_name = "article_module/article-detail.html"
+    model = Article
     context_object_name = 'article'
     form_class=CommentForm
     success_url = '/'
-    # def get_queryset(self):
-    #     data = super(Comments, self).get_queryset()
-    #     comments = data.filter(=True)
-    #     return comments

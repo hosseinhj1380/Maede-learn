@@ -26,6 +26,7 @@ class Article(models.Model):
     text = models.TextField(verbose_name="متن")
     image = models.ImageField(upload_to="article-images")
     is_active = models.BooleanField(default=True, verbose_name="فعال/غیرفعال")
+    comment=models.ForeignKey('Comments',null=True,blank=True,on_delete=models.CASCADE,verbose_name='کامنت ها ')
 
     def __str__(self):
         return self.title
@@ -35,10 +36,10 @@ class Article(models.Model):
         verbose_name_plural = "مقالات"
 
 class Comments (models.Model):
-    blog=models.ForeignKey(Article,null=True,blank=True,on_delete=models.CASCADE,verbose_name='بلاگ مربوطه ')
-    full_name = models.CharField(max_length=50,null=False,verbose_name='نام ',default='hossein')
-    email = models.EmailField(verbose_name='ایمیل',default='hossein@hossein.com')
-    message = models.CharField(max_length=500,null=False,verbose_name='پیام ',default='nothing')
+    blog=models.ForeignKey(Article,null=True,blank=True,on_delete=models.CASCADE,verbose_name='مقاله مربوطه  ')
+    full_name = models.CharField(max_length=50,null=False,verbose_name='نام ')
+    email = models.EmailField(verbose_name='ایمیل')
+    message = models.TextField(max_length=500,null=False,verbose_name='پیام ')
 
     # title = models.ForeignKey(ArticleCategory,null=False,blank=False,on_delete=models.CASCADE,default=None)
 
