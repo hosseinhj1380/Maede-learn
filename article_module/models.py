@@ -45,3 +45,7 @@ class Comments (models.Model):
 
     def __str__(self):
         return self.full_name
+
+    class Meta:
+        verbose_name = " کامنت"
+        verbose_name_plural = "کامنت ها"

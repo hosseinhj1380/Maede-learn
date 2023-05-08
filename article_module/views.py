@@ -20,9 +20,16 @@ class ArticlesView(ListView):
         return articles_data
 
 
-class ArticleDetailView(DetailView,FormMixin):
+class ArticleDetailView(DetailView,CreateView):
     template_name = "article_module/article-detail.html"
     model = Article
     context_object_name = 'article'
     form_class=CommentForm
     success_url = '/'
+
+
+# def comment_component(request):
+#     context = {
+#         "comment" : Comments.objects.all()
+#     }
+#     render(request,'article_module/comments.html', context)

@@ -79,7 +79,7 @@ class ContactUsModelForm(forms.ModelForm):
             'message': forms.Textarea(attrs={
                 'name': "name",
                 'id': "message",
-                'class': "form-control",
+                'class': "req",
                 'rows': "8",
                 'placeholder': "متن پیامتان را بنویسید",
                 'cols': 'None'

@@ -1,10 +1,10 @@
 from django import forms
 from .models import Article,Comments
 
-class CommentForm (forms.Form):
+class CommentForm (forms.ModelForm):
 
     class Meta:
-        model = Article
+        model = Comments
         fields=['full_name','email','message']
 
         widgets = {
@@ -23,10 +23,10 @@ class CommentForm (forms.Form):
             'message': forms.Textarea(attrs={
                 'name': "name",
                 'id': "message",
-                'class': "form-control",
-                'rows': "8",
+                'class': "req",
+
                 'placeholder': "متن پیامتان را بنویسید",
-                'cols': 'None'
+
 
             })
 
