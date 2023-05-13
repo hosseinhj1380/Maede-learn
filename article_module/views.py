@@ -3,7 +3,7 @@ from django.views.generic import DetailView,FormView,CreateView
 from django.views.generic.edit import FormMixin
 from django.views.generic.list import ListView
 from .models import ArticleCategory, Article,Comments
-from .forms import CommentForm
+
 
 # Create your views here.
 
@@ -20,16 +20,19 @@ class ArticlesView(ListView):
         return articles_data
 
 
-class ArticleDetailView(DetailView,CreateView):
+class ArticleDetailView(DetailView):
     template_name = "article_module/article-detail.html"
     model = Article
     context_object_name = 'article'
-    form_class=CommentForm
-    success_url = '/'
 
 
-# def comment_component(request):
-#     context = {
-#         "comment" : Comments.objects.all()
-#     }
-#     render(request,'article_module/comments.html', context)
+def get_context_data(self, **kwargs):
+    context = super(ArticleDetailView, self).get_context_data(**kwargs)
+    article = kwargs.get('object')
+    comment: Comments = Comments.objects.filter(article_id=article.id, parent=None).prefetch_related(
+        "article__articlecomments_set")
+
+    context['comments'] = comment
+    return context
+
+

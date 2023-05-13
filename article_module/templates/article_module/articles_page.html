@@ -18,7 +18,7 @@
             {% for articles in article %}
                     <div class="blog-item clearfix"> <img src="{{ articles.image.url }}" alt="blog-single" class="resp-img">
           <h3>{{ articles.title }}</h3>
-          <div class="author"> <a href="#">طراحی وب</a><span> - 4 شهریور 1396 توسط محمد زارعی</span> </div>
+          <div class="author"> <a href="#">طراحی وب</a><span>{{ articles.author.get_full_name }}</span> </div>
           <p class="abs"> {{ articles.short_description }} <a href="{% url "article:article-detail"  articles.slug %}" class="pull-right greybutton">خواندن ادامه</a> </div>
             {% endfor %}
 

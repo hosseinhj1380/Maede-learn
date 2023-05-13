@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'cart_module',
     'backup_module',
     'site_module',
-    'article_module'
+    'article_module',
+
+    'sorl.thumbnail'
 
 
 ]

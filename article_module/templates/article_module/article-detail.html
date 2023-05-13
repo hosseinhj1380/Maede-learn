@@ -1,6 +1,6 @@
 
 {% extends "shared/index.html" %}{% load render_partial %}
-
+{% load sorl_thumbnail %}
 {% block title %}
 جزییات مقاله
 {% endblock %}
@@ -17,7 +17,7 @@
     <div class="row">
       <div class="col-lg-9"> <img src="{{ article.image.url }}" alt="blog-single" class="resp-img">
         <h3>{{ article.title }}</h3>
-        <div class="author"> <a href="#">محمد زارعی</a><span> - 2 شهریور 1396</span> </div>
+        <div class="author"> <a href="#">{{ article.author.get_full_name }}</a><span> - 2 شهریور 1396</span> </div>
             <p>{{ article.text }}</p>
           <div class="about-author">
           <ul class="social pull-right">
@@ -28,11 +28,17 @@
             <li> <a href="#"><i class="zmdi zmdi-email"></i></a></li>
             <li> <a href="#"><i class="zmdi zmdi-globe-alt"></i></a></li>
           </ul>
+            {% if article.author %}
           <h4>درباره نویسنده</h4>
-          <img src="/static/assets/img/avatar/2.png" alt="Avatar" class="pull-left"> <a class="teacher-name" href="#">محمد زارعی</a>
+
+                        {% if article.author.avatar %}
+                  {% thumbnail article.author.avatar "120x120" crop="center"  as image %}
+                              <img src="{{ image.url }}" alt="Avatar" class="pull-left">
+                                {% endthumbnail %}{% endif %}
+                  <a class="teacher-name" href="#">{{ article.author.get_full_name }}</a>
           <p>طراح</p>
-          <p class="abs"> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
-        </div>
+          <p class="abs"><p>{{ article.author.about }}</p>
+        </div>{% endif %}
         <h4>نظرات</h4>
 {#          {% render_partial 'article_module.views.comment_component' %}#}
 

@@ -15,5 +15,5 @@ class ArticleCategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ['title',]}
 
 @admin.register(Comments)
-class Commentsadmin(admin.ModelAdmin):
-    list_display = ['full_name','message','email']
+class CommentsAdmin(admin.ModelAdmin):
+   pass

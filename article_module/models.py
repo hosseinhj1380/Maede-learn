@@ -1,5 +1,7 @@
 from django.db import models
 
+from user_module.models import User
+
 
 # Create your models here.
 
@@ -26,7 +28,8 @@ class Article(models.Model):
     text = models.TextField(verbose_name="متن")
     image = models.ImageField(upload_to="article-images")
     is_active = models.BooleanField(default=True, verbose_name="فعال/غیرفعال")
-    comment=models.ForeignKey('Comments',null=True,blank=True,on_delete=models.CASCADE,verbose_name='کامنت ها ')
+    author = models.ForeignKey(User, editable=False, null=True, verbose_name="نویسنده", on_delete=models.CASCADE)
+    date_created = models.DateField(auto_now_add=True, verbose_name="زمان انتشار")
 
     def __str__(self):
         return self.title
@@ -35,16 +38,16 @@ class Article(models.Model):
         verbose_name = " مقاله"
         verbose_name_plural = "مقالات"
 
-class Comments (models.Model):
-    blog=models.ForeignKey(Article,null=True,blank=True,on_delete=models.CASCADE,verbose_name='مقاله مربوطه  ')
-    full_name = models.CharField(max_length=50,null=False,verbose_name='نام ')
-    email = models.EmailField(verbose_name='ایمیل')
-    message = models.TextField(max_length=500,null=False,verbose_name='پیام ')
-
-    # title = models.ForeignKey(ArticleCategory,null=False,blank=False,on_delete=models.CASCADE,default=None)
+class Comments(models.Model):
+    article =  models.ForeignKey("Article",on_delete=models.CASCADE,verbose_name="مقاله")
+    author = models.ForeignKey(User ,  on_delete=models.CASCADE,verbose_name="نویسنده کامنت")
+    parent = models.ForeignKey("Comments",null=True,blank=True,on_delete=models.CASCADE,verbose_name="والد")
+    date_created = models.DateField(auto_now_add=True, verbose_name="زمان انتشار")
+    is_active = models.BooleanField(default=True, verbose_name="فعال/غیرفعال")
+    text = models.TextField(verbose_name="متن")
 
     def __str__(self):
-        return self.full_name
+        return f"کامنت شماره{self.id}"
 
     class Meta:
         verbose_name = " کامنت"

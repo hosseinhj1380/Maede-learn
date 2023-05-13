@@ -1,12 +1,16 @@
 {% extends 'shared/index.html' %}
-
+{% load sorl_thumbnail %}
 {% block title %}
     welcome
 {% endblock %}
 
 {% block body %}
     <body id="index3" class="index3">
-{% include "shared/homepage_header_component.html" %}
+    {% for sliders in slider %}
+        {% include "shared/homepage_header_component.html"  %}
+    {% endfor %}
+
+
 <main>
   <div class="container featured text-center">
     <div class="col-md-4">
