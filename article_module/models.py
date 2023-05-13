@@ -28,7 +28,7 @@ class Article(models.Model):
     text = models.TextField(verbose_name="متن")
     image = models.ImageField(upload_to="article-images")
     is_active = models.BooleanField(default=True, verbose_name="فعال/غیرفعال")
-    author = models.ForeignKey(User, editable=False, null=True, verbose_name="نویسنده", on_delete=models.CASCADE)
+    author = models.ForeignKey(User,editable=False, null=True,blank=True, verbose_name="نویسنده", on_delete=models.CASCADE)
     date_created = models.DateField(auto_now_add=True, verbose_name="زمان انتشار")
 
     def __str__(self):

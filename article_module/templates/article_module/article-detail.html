@@ -17,7 +17,7 @@
     <div class="row">
       <div class="col-lg-9"> <img src="{{ article.image.url }}" alt="blog-single" class="resp-img">
         <h3>{{ article.title }}</h3>
-        <div class="author"> <a href="#">{{ article.author.get_full_name }}</a><span> - 2 شهریور 1396</span> </div>
+        <div class="author"> <a href="#">{{ article.author.get_full_name }}</a><span> -{{ article.date_created }}</span> </div>
             <p>{{ article.text }}</p>
           <div class="about-author">
           <ul class="social pull-right">
@@ -32,13 +32,14 @@
           <h4>درباره نویسنده</h4>
 
                         {% if article.author.avatar %}
-                  {% thumbnail article.author.avatar "120x120" crop="center"  as image %}
+                  {% thumbnail article.author.avatar "130x130" crop="center"  as image %}
                               <img src="{{ image.url }}" alt="Avatar" class="pull-left">
                                 {% endthumbnail %}{% endif %}
                   <a class="teacher-name" href="#">{{ article.author.get_full_name }}</a>
           <p>طراح</p>
           <p class="abs"><p>{{ article.author.about }}</p>
         </div>{% endif %}
+      {% if request.user.is_authenticated %}
         <h4>نظرات</h4>
 {#          {% render_partial 'article_module.views.comment_component' %}#}
 
@@ -69,9 +70,14 @@
             <button type="submit" name="submit" class="greybutton">ارسال</button>
         </div>
       </div></form>
+
         </div>
       </div>
-    </form>
+    </form>{% else %}
+          <div class="lert alert-warning">
+          <h3>برای درج نظر لطفا <a href="{%  url "user:login" %}">وارد</a> شوید</h3>
+          </div>
+              {% endif %}
       </div>
       <div class="col-lg-3 blog-sidebar">
         <div class="search-something">
