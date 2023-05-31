@@ -3,6 +3,7 @@ from django.views.generic import TemplateView, View
 from site_module.models import Sliders
 
 
+
 # Create your views here.
 
 class Home_page(TemplateView):
