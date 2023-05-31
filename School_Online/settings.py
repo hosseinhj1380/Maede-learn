@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'backup_module',
     'site_module',
     'article_module',
-
-    'sorl.thumbnail'
+    'sorl.thumbnail',
+    'teacher_module'
 
 
 ]
