@@ -1,6 +1,6 @@
 
 {% extends "shared/index.html" %}{% load render_partial %}
-{% load sorl_thumbnail %}
+{% load sorl_thumbnail %}{%  load thumbnail %} 
 {% block title %}
 جزییات مقاله
 {% endblock %}
@@ -31,17 +31,17 @@
             {% if article.author %}
           <h4>درباره نویسنده</h4>
 
-                        {% if article.author.avatar %}
+                         {% if article.author.avatar %}
                   {% thumbnail article.author.avatar "130x130" crop="center"  as image %}
                               <img src="{{ image.url }}" alt="Avatar" class="pull-left">
                                 {% endthumbnail %}{% endif %}
-                  <a class="teacher-name" href="#">{{ article.author.get_full_name }}</a>
+                  <a class="teacher-name" href="#">{{ article.author.get_full_name }}</a> 
           <p>طراح</p>
           <p class="abs"><p>{{ article.author.about }}</p>
         </div>{% endif %}
       {% if request.user.is_authenticated %}
         <h4>نظرات</h4>
-{#          {% render_partial 'article_module.views.comment_component' %}#}
+    {% comment %} {% render_partial 'article_module.views.comment_component' %} {% endcomment %}
 
         <h4>ارسال دیدگاه</h4>
           <div class="container success">
