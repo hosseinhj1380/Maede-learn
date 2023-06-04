@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db" uuid="fd56a0d4-8b26-49db-bad7-9dc33b898fa5">
+    <data-source source="LOCAL" name="db" uuid="2d1e78ed-2334-449b-9053-c12292b9f5f1">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\asus\Desktop\School-Online\db.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\test\db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
@@ -16,14 +16,20 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="Django default" uuid="007be42a-e40c-4c45-aeea-cd4ab8084c4e">
+    <data-source source="LOCAL" name="db [2]" uuid="4f5e133b-8d88-4858-b5ec-152699e45a3d">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/School_Online/settings.py</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\asus\Desktop\School-Online\db.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\asus\Desktop\eshop_project\db.sqlite3</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.40.1/org/xerial/sqlite-jdbc/3.40.1.0/sqlite-jdbc-3.40.1.0.jar</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.40.1/sqlite-jdbc-3.40.1.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>
