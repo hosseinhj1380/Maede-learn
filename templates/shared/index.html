@@ -1,0 +1,16 @@
+{% load render_partial %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include 'shared/header_references.html' %}
+    <title>{% block title%} {% endblock %}</title>
+</head>
+{% render_partial 'apps.home_module.views.header_component' %}
+{% block header_slider %}{% endblock %}
+{% block body %}{% endblock %}
+{% render_partial 'apps.home_module.views.footer_component' %}
+
+{% include 'shared/footer-refernces.html' %}
+</body>
+</html>
