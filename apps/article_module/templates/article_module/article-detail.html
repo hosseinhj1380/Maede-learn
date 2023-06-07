@@ -1,6 +1,7 @@
 
 {% extends "shared/index.html" %}{% load render_partial %}
-
+{% load comment_tags %}  {# Loading the template tag #}
+{% include_bootstrap %} {# Include bootstrap 4.1.1 - remove this line if BS is already used in your project #}
 {% block title %}
 جزییات مقاله
 {% endblock %}
@@ -37,34 +38,36 @@
 {#          {% render_partial 'article_module.views.comment_component' %}#}
 
         <h4>ارسال دیدگاه</h4>
-          <div class="container success">
-         <form method="post" class="contact">
-        {% csrf_token %}
-      <div class="row">
-        <div class="col-sm-4">
-            {{ form.full_name.label_tag }}
-            {{ form.full_name }}
-            {{ form.full_name.errors }}
-        </div>
-        <div class="col-sm-4">
-            {{ form.email.label_tag }}
-            {{ form.email }}
-            {{ form.email.errors }}
-        </div>
-      </div>
-        <div class="col-md-8 pull-left ">
-            {{ form.message.label_tag }}
-            {{ form.message }}
-            {{ form.message.errors }}
-      </div>
-      <div class="row clearfix">
-        <div class="col-md-12">
 
-            <button type="submit" name="submit" class="greybutton">ارسال</button>
-        </div>
-      </div></form>
-        </div>
-      </div>
+{% render_comments article request %}  {# Render all the comments belong to the passed object "obj" #}
+<!--          <div class="container success">-->
+<!--         <form method="post" class="contact">-->
+<!--        {% csrf_token %}-->
+<!--      <div class="row">-->
+<!--        <div class="col-sm-4">-->
+<!--            {{ form.full_name.label_tag }}-->
+<!--            {{ form.full_name }}-->
+<!--            {{ form.full_name.errors }}-->
+<!--        </div>-->
+<!--        <div class="col-sm-4">-->
+<!--            {{ form.email.label_tag }}-->
+<!--            {{ form.email }}-->
+<!--            {{ form.email.errors }}-->
+<!--        </div>-->
+<!--      </div>-->
+<!--        <div class="col-md-8 pull-left ">-->
+<!--            {{ form.message.label_tag }}-->
+<!--            {{ form.message }}-->
+<!--            {{ form.message.errors }}-->
+<!--      </div>-->
+<!--      <div class="row clearfix">-->
+<!--        <div class="col-md-12">-->
+
+<!--            <button type="submit" name="submit" class="greybutton">ارسال</button>-->
+<!--        </div>-->
+<!--      </div></form>-->
+<!--        </div>-->
+<!--      </div>-->
     </form>
       </div>
       <div class="col-lg-3 blog-sidebar">

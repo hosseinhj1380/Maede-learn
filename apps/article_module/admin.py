@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ArticleCategory, Article,Comments
+from .models import ArticleCategory, Article
 
 
 @admin.register(ArticleCategory)
@@ -14,6 +14,6 @@ class ArticleCategoryAdmin(admin.ModelAdmin):
     list_editable = ['is_active' ]
     prepopulated_fields = {"slug": ['title',]}
 
-@admin.register(Comments)
-class Commentsadmin(admin.ModelAdmin):
-    list_display = ['full_name','message','email']
+# @admin.register(Comments)
+# class Commentsadmin(admin.ModelAdmin):
+#     list_display = ['full_name','message','email']

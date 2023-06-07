@@ -46,7 +46,8 @@ INSTALLED_APPS = [
     'apps.article_module',
     'apps.site_module',
      #external
-    'sorl.thumbnail'
+    'sorl.thumbnail',
+    'comment'
 ]
 
 MIDDLEWARE = [

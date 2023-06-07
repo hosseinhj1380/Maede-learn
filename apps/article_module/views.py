@@ -1,9 +1,10 @@
 from django.shortcuts import render
+from django.views import View
 from django.views.generic import DetailView,FormView,CreateView
 from django.views.generic.edit import FormMixin
 from django.views.generic.list import ListView
-from .models import ArticleCategory, Article,Comments
-from .forms import CommentForm
+from .models import ArticleCategory, Article
+# from .forms import CommentForm
 
 # Create your views here.
 
@@ -20,11 +21,11 @@ class ArticlesView(ListView):
         return articles_data
 
 
-class ArticleDetailView(DetailView,CreateView):
+class ArticleDetailView(CreateView):
     template_name = "article_module/article-detail.html"
     model = Article
     context_object_name = 'article'
-    form_class=CommentForm
+    fields = '__all__'
     success_url = '/'
 
 
