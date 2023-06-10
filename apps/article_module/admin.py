@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ArticleCategory, Article
+from .models import ArticleCategory, Article , Comments
 
 
 @admin.register(ArticleCategory)
@@ -15,19 +15,16 @@ class ArticleCategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ['title',]}
     exclude = ('writer',)  # Exclude the writer field from the admin form
 
-    def save_model(self, request, obj, form, change):
-        if not change:
-            # the object is being created, so set the user
-            obj.writer = request.user
-        obj.save()
+    # def save_model(self, request, obj, form, change):
+    #     if not change :
+    #         obj.writer = request.user
+    #     return super().save_model(request,obj,form,change)
 
-<<<<<<< HEAD
-# @admin.register(Comments)
-# class Commentsadmin(admin.ModelAdmin):
-#     list_display = ['full_name','message','email']
-=======
+
 @admin.register(Comments)
 class Commentsadmin(admin.ModelAdmin):
     list_display = ['full_name','message','email']
 
->>>>>>> 7bc94bb05cf26dc199395ea82f93aab0f9c8aeaf
+
+
+

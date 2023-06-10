@@ -1,5 +1,5 @@
 {% extends 'shared/index.html' %}
-
+{% load sorl_thumbnail %}
 {% block title %}
     مقالات 
 {% endblock %}
@@ -16,7 +16,11 @@
     <div class="row">
       <div class="col-lg-9">
             {% for articles in article %}
-                    <div class="blog-item clearfix"> <img src="{{ articles.image.url }}" alt="blog-single" class="resp-img">
+                    <div class="blog-item clearfix"> <div class="blog-item clearfix">
+                        {% thumbnail articles.image "1080x700" quality=100 crop="center"  as image %}
+                              <img src="{{ image.url }}" alt="blog-single" class="resp-img">
+                        {% endthumbnail %}
+                    </div>
           <h3>{{ articles.title }}</h3>
           <div class="author"> <a href="#"> {{ articles.selected_categories.all|join:" / " }}  </a><br> <span> {{articles.date }} - {{ articles.writer }}   </span> </div>
           <p class="abs"> {{ articles.short_description }} <a href="{% url "article:article-detail"  articles.slug %}" class="pull-right greybutton">خواندن ادامه</a> </div>

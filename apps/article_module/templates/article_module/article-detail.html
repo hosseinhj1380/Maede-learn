@@ -1,6 +1,6 @@
 
 {% extends "shared/index.html" %}{% load render_partial %}
-
+{% load thumbnail %}
 {% block title %}
 جزییات مقاله
 {% endblock %}
@@ -29,7 +29,16 @@
             <li> <a href="#"><i class="zmdi zmdi-globe-alt"></i></a></li>
           </ul>
           <h4>درباره نویسنده</h4>
-          <img src={{ article.writer.avatar.url }} alt="Avatar" class="pull-left"> <a class="teacher-name" href="#"> {{ article.writer }}  </a>
+
+                 {% thumbnail article.writer.avatar "100x100" quality=100 crop="center"  as image %}
+                               <img src="{{ image.url}}" alt="Avatar" class="pull-left">
+                                {% endthumbnail %}
+          <a class="teacher-name" href="#"> {{ article.writer }}  </a>
+
+
+
+
+          <img src={{ .url }} >
           <p>{{article.writer.talent.all|join:" / "}}</p>
           <p class="abs"> {{ article.writer.about}} </p>
         </div>

@@ -12,7 +12,7 @@ class User(AbstractUser):
     number =  models.IntegerField(blank=True,null=True,verbose_name="شماره همراه")
 
     talent=models.ManyToManyField(TalentCategory,blank=False,verbose_name="مهارت یا دسته بندی مورد علاقه ")
-    avatar = models.ImageField(verbose_name='آواتار',null=True,upload_to="User-avatar",)
+    avatar = models.ImageField(verbose_name='آواتار',null=True,blank=True,upload_to="User-avatar",)
     
 
     class Meta:

@@ -1,30 +1,23 @@
-{% load sorl_thumbnail %}
+{% load thumbnail %}
   <header>
-  <ul class="pull-right lang">
-    <li class="selected"><a href="#">EN</a></li>
-    <li><a href="#">DE</a></li>
-    <li><a href="#">FR</a></li>
-    <li><a href="#">PO</a></li>
-  </ul>
 
   <div class="container">
-
       <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
-          <p class="pretitle"></p>
+
           <h2 class="wow pulse">{{ sliders.title}}</h2>
           <p>{{ sliders.short_description }}</p>
-          <a href="{% url "user:register" %}" class="bluebutton wow fadeInDown">ثبت نام کنید و یادگیری را آغاز کنید.</a> </div>
+          <a href="{% url "user:register" %}" class="bluebutton wow fadeInDown">ثبت نام کنید و یادگیری را آغاز کنید.</a>
+        </div>
       </div>
     </div>
-  </div>
+
   <ul class="rslides-header">
-
-    <li>{% thumbnail sliders.image "2160x1000" quality=100 crop="center"  as image %}
-                               <img src="{{ image.url}}" class="resp-img" alt="Slide">
-                                {% endthumbnail %}
-
-    </li>
-
+        <li>
+    {% thumbnail sliders.image "2160x900" quality=100 crop="center"  as image %}
+                               <img src="{{ image.url}}" class="resp-img" alt="Slider">
+                                {% endthumbnail %}</li>
   </ul>
+
+
   <a href="#" class="scrolldown"><span></span></a> </header>
