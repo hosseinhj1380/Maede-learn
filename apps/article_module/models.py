@@ -1,4 +1,5 @@
 from django.db import models
+from apps.user_module.models import User
 
 
 # Create your models here.
@@ -27,7 +28,11 @@ class Article(models.Model):
     image = models.ImageField(upload_to="article-images")
     is_active = models.BooleanField(default=True, verbose_name="فعال/غیرفعال")
     comment=models.ForeignKey('Comments',null=True,blank=True,on_delete=models.CASCADE,verbose_name='کامنت ها ')
+    writer=models.ForeignKey(User,verbose_name="نام نویسنده ",on_delete=models.CASCADE)
+    date=models.DateField(null=False, blank=False, auto_now=True,verbose_name="تاریخ مقاله")
+    
 
+    # writer=models.CharField(max_length=255,null=False,verbose_name="نام و نام خانوادگی نویسنده ",default=None)
     def __str__(self):
         return self.title
 
