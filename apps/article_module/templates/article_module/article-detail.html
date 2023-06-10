@@ -1,7 +1,6 @@
 
 {% extends "shared/index.html" %}{% load render_partial %}
-{% load comment_tags %}  {# Loading the template tag #}
-{% include_bootstrap %} {# Include bootstrap 4.1.1 - remove this line if BS is already used in your project #}
+
 {% block title %}
 جزییات مقاله
 {% endblock %}
@@ -39,7 +38,7 @@
 
         <h4>ارسال دیدگاه</h4>
 
-{% render_comments article request %}  {# Render all the comments belong to the passed object "obj" #}
+
 <!--          <div class="container success">-->
 <!--         <form method="post" class="contact">-->
 <!--        {% csrf_token %}-->

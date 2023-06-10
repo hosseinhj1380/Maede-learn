@@ -1,0 +1,48 @@
+{% extends "shared/index.html" %}
+{%  load render_partial%}
+{% block title %}
+User Panel
+{% endblock %}
+{% block header_slider %}
+<body id="contact" class="page">
+{% endblock %}
+{% block body %}
+<main>
+  <div class="page-heading text-center">
+    <div class="container ">
+      <div class="row ">
+
+      </div>
+    </div>
+  </div>
+  <div class="container success">
+    <form method="post" class="contact">
+        {% render_partial "apps.user_module.views.user_panel_components" %}
+        <div class="col-md-4 pull-left">
+            {{ form.first_name.label_tag }}
+            {{ form.first_name }}
+        </div>  <div class="col-md-4 pull-left">
+            {{ form.last_name.label_tag }}
+            {{ form.last_name }}
+        </div>  <div class="col-md-4 pull-left">
+            {{ form.number.label_tag }}
+            {{ form.number }}
+        </div>
+        <div class="col-md-4 pull-left">
+            {{ form.username.label_tag }}
+            {{ form.username }}</div>
+        <div class="col-md-3 pull-left">
+            {{ form.avatar.label_tag }}
+            {{ form.avatar }}</div>
+    <div class="row clearfix ">
+        <div class="col-sm-8">
+          <div class="pull-right">
+            <button type="submit" name="submit" class="greybutton">ارسال</button>
+          </div>
+        </div>
+    </div>
+    </form>
+  </div>
+</main>
+
+{% endblock %}

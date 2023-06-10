@@ -1,0 +1,15 @@
+{% extends "shared/index.html" %}
+{%  load render_partial%}
+{% block title %}
+User Panel
+{% endblock %}
+{% block header_slider %}
+    <body id="contact" class="page">
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            {% render_partial "apps.user_module.views.user_panel_components" %}
+        </div>
+    </div>
+{% endblock %}

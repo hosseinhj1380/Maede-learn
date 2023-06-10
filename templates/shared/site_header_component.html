@@ -1,11 +1,11 @@
 
 <header>
-  <ul class="pull-right lang">
+  {% comment %} <ul class="pull-right lang">
     <li class="selected"><a href="#">EN</a></li>
     <li><a href="#">DE</a></li>
     <li><a href="#">FR</a></li>
     <li><a href="#">PO</a></li>
-  </ul>
+  </ul> {% endcomment %}
   <div class="container">
     <div id="topbar">
       <div class="pull-right">
@@ -30,7 +30,7 @@
                   <li><a href="{% url "backup:info-page" %}">چگونه کار میکند</a></li>
                   <li><a href="pricing.html">قیمت ها</a></li>
                   <li><a href="services-1.html">خدمات </a></li>
-                  <li><a href="teachers.html">مدرسین</a></li>
+                  <li><a href="teachers-list/<slug:slug>">مدرسین</a></li>
 
                   <li><a href="{% url "article:article-list" %}">مقالات</a></li>
                 </ul>
@@ -44,6 +44,7 @@
                     <a href="/admin" class="register"> پنل ادمین</a>
               {% endif %}
               <a href="{% url "user:logout" %}" class="register">خروج</a>
+              <a href="{% url "user:user-panel" %}" class="register">پنل کاربری</a>
                       <div class="cart"> <a href="#"><i class="zmdi zmdi-case zmdi-hc-lg"></i><span>2</span></a>
           <div class="cart-container">
             <h6>سبد خرید (2)</h6>

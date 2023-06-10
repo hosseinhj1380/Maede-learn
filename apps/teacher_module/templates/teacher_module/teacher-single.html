@@ -1,0 +1,70 @@
+
+{% extends "shared/index.html" %}{% load render_partial %}
+
+
+{% block body %}
+
+<body id="teacher-single" class="page">
+
+<main>
+  {% for teacher in teachers %}
+  <div class="container teacher-page">
+    <div class="row">
+      <div class="col-sm-3 text-center float-right"> <img src={{ teacher.Image.url }} alt="Avatar" class="teacher-avatar">
+        <ul class="social">
+          <li><a href="#"><i class="zmdi zmdi-facebook"></i></a></li>
+          <li> <a href="#"><i class="zmdi zmdi-twitter"></i></a></li>
+          <li> <a href="#"><i class="zmdi zmdi-google-old"></i></a></li>
+          <li> <a href="#"><i class="zmdi zmdi-pinterest"></i></a></li>
+          <li> <a href="#"><i class="zmdi zmdi-instagram"></i></a></li>
+          <li> <a href="#"><i class="zmdi zmdi-email"></i></a></li>
+          <li> <a href="#"><i class="zmdi zmdi-globe-alt"></i></a></li>
+        </ul>
+      </div>
+      <div class="col-sm-9">
+        <h5>{{ teacher.Full_name }}</h5>
+        
+        <p>{{ teacher.talent }}</p>
+        <p class="class-details"> <span class="lessons"><i class="zmdi zmdi-assignment"></i>{{ teacher.NumberofCorses }} دوره</span> <span class="views"><i class="zmdi zmdi-eye"></i>2241 نمایش</span> <span class="rating"><i class="zmdi zmdi-star"></i>میانگین امتیاز : 4,8</span> </p>
+        <p class="abs"> {{ teacher.About_teacher }} </p>
+        
+      </div>
+    </div>
+  </div>
+  {% comment %} <div class="container popular">
+    <h4>دوره های محمد زارعی</h4>
+    <div class="row tutorials">
+      <div class="tutorial"> <img src="assets/img/popular/4.jpg" class="resp-img" alt="Tutorial">
+        <div class="tutorial-details">
+          <h6>چگونه یک طراح UX شویم</h6>
+          <p><span class="lessons"><i class="zmdi zmdi-assignment"></i>12 درس</span><span class="duration"><i class="zmdi zmdi-time"></i>3:15 ساعت</span></p>
+          <p class="abs">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که.</p>
+          <a href="#" class="greybutton">نمایش دوره</a> </div>
+      </div>
+      <div class="tutorial"> <img src="assets/img/popular/5.jpg" class="resp-img" alt="Tutorial">
+        <div class="tutorial-details">
+          <h6>8 گام به راه اندازی استارت اپ خودتان</h6>
+          <p><span class="lessons"><i class="zmdi zmdi-assignment"></i>4 درس</span><span class="duration"><i class="zmdi zmdi-time"></i>8:25 ساعت</span></p>
+          <p class="abs">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که.</p>
+          <a href="#" class="greybutton">نمایش دوره</a> </div>
+      </div>
+      <div class="tutorial"> <img src="assets/img/popular/6.jpg" class="resp-img" alt="Tutorial">
+        <div class="tutorial-details">
+          <h6>ارتباطات تجاری برای بازاریابان</h6>
+          <p><span class="lessons"><i class="zmdi zmdi-assignment"></i>15 درس</span><span class="duration"><i class="zmdi zmdi-time"></i>4:07 ساعت</span></p>
+          <p class="abs">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که.</p>
+          <a href="#" class="greybutton">نمایش دوره</a> </div>
+      </div>
+      <div class="tutorial"> <img src="assets/img/popular/9.jpg" class="resp-img" alt="Tutorial">
+        <div class="tutorial-details">
+          <h6>8 گام به راه اندازی استارت اپ خودتان</h6>
+          <p><span class="lessons"><i class="zmdi zmdi-assignment"></i>4 درس</span><span class="duration"><i class="zmdi zmdi-time"></i>8:25 ساعت</span></p>
+          <p class="abs">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که.</p>
+          <a href="#" class="greybutton">نمایش دوره</a> </div> {% endcomment %}
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

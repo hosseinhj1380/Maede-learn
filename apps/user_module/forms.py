@@ -80,3 +80,47 @@ class ResetPasswordForm(forms.Form):
             'type': "password",
             'placeholder': "تایید رمـز عبـور",
         }))
+
+class EditPanelForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'avatar', 'username','number']
+        widgets = {
+            'username': forms.TextInput(attrs={
+                'class': "req",
+                'placeholder': "نام کاربری  ",
+                'name': 'email',
+                'type': "email",
+
+            }),
+            'first_name': forms.TextInput( attrs={
+                'class': "req",
+                'placeholder': "نام  ",
+                'name': 'name',
+                'type': "text"
+            }),
+            'last_name': forms.TextInput(attrs={
+                'class': "req",
+                'placeholder': "نام خانوادگی  ",
+                'name': 'name',
+                'type': "text"
+            }),
+
+            'number': forms.NumberInput(attrs={
+                'class': "req",
+                'placeholder': "شماره همراه ",
+                'name': 'text',
+                'type': "text"
+            }),
+
+
+
+        }
+        labels = {
+            'first_name': 'نام ',
+            'last_name': ' نام خانوادگی',
+            'username': ' نام کاربری',
+            'number': 'شماره ی تلفن',
+            'avatar' : 'آواتار',
+
+        }

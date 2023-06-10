@@ -4,14 +4,32 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.utils.crypto import get_random_string
 from django.views.generic import CreateView
-from django.views.generic.base import View
+from django.views.generic.base import View, TemplateView
 from utils.email_service import send_mail
-from apps.user_module.forms import RegisterForm, LoginForm, ForgetPassForm, ResetPasswordForm
+from apps.user_module.forms import RegisterForm, LoginForm, ForgetPassForm, ResetPasswordForm, EditPanelForm
 from apps.user_module.models import User
 
 
 # Create your views here.
 
+
+class UserPanelView(TemplateView):
+    template_name = "user_module/user-panel.html"
+
+def user_panel_components(request):
+    return  render(request,"user_module/user-components/user-panel-component.html",context={})
+
+
+class EditUserPanelView(View):
+    def get(self,request):
+        form = EditPanelForm()
+        context = {
+            "form": form
+        }
+        return render(request, "user_module/edit-user-panel.html",context)
+
+    def post(self,request):
+        return render(request, "user_module/edit-user-panel.html", {})
 class RegisterView(View):
 
     def get(self, request):

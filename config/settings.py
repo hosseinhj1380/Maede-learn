@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'apps.backup_module',
     'apps.article_module',
     'apps.site_module',
+    'apps.teacher_module',
      #external
     'sorl.thumbnail',
     'comment'
