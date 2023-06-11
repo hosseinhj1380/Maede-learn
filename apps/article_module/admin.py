@@ -15,10 +15,10 @@ class ArticleCategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ['title',]}
     exclude = ('writer',)  # Exclude the writer field from the admin form
 
-    # def save_model(self, request, obj, form, change):
-    #     if not change :
-    #         obj.writer = request.user
-    #     return super().save_model(request,obj,form,change)
+    def save_model(self, request, obj, form, change):
+        if not change :
+            obj.writer = request.user
+        return super().save_model(request,obj,form,change)
 
 
 @admin.register(Comments)

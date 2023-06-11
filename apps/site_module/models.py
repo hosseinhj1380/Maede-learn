@@ -66,3 +66,7 @@ class Sliders(models.Model):
     class Meta:
         verbose_name = "اسلایدر"
         verbose_name_plural = "اسلایدر ها"
+
+class SliderGallery(models.Model):
+    images = models.ImageField(verbose_name="گالری اسلایدر",blank=True,null=True)
+    slider = models.ForeignKey("Sliders",on_delete=models.CASCADE,related_name="slidergallery")

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'apps',
     'django_render_partial',
     # for intellisense
+    'apps.home_module',
     'apps.contact_module',
     'apps.course_module',
     'apps.user_module',

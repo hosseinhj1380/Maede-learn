@@ -13,11 +13,16 @@
     </div>
 
   <ul class="rslides-header">
-        <li>
-    {% thumbnail sliders.image "2160x900" quality=100 crop="center"  as image %}
+        {% for slider in sliders.slidergallery.all %}
+
+    <li>
+    {% thumbnail slider.images "2160x900" quality=100 crop="center"  as image %}
                                <img src="{{ image.url}}" class="resp-img" alt="Slider">
                                 {% endthumbnail %}</li>
+        {% endfor %}
   </ul>
+
+
 
 
   <a href="#" class="scrolldown"><span></span></a> </header>
