@@ -4,6 +4,9 @@ from django.views.generic import DetailView,FormView,CreateView
 from django.views.generic.edit import FormMixin
 from django.views.generic.list import ListView
 from .models import ArticleCategory, Article
+from ..user_module.models import User
+
+
 # from .forms import CommentForm
 
 # Create your views here.
@@ -28,9 +31,10 @@ class ArticleDetailView(DetailView):
     fields = '__all__'
     success_url = '/'
 
+    def get_context_data(self,*args,**kwargs):
+        context = super(ArticleDetailView, self).get_context_data(**kwargs)
+        context['user'] = User.objects.filter(is_active=True).first()
+        return context
 
-# def comment_component(request):
-#     context = {
-#         "comment" : Comments.objects.all()
-#     }
-#     render(request,'article_module/comments.html', context)
+
+

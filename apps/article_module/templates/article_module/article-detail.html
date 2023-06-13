@@ -30,54 +30,52 @@
           </ul>
           <h4>درباره نویسنده</h4>
 
-                 {% thumbnail article.writer.avatar "100x100" quality=100 crop="center"  as image %}
-                               <img src="{{ image.url}}" alt="Avatar" class="pull-left">
+                 {% thumbnail article.writer.avatar "200x200" quality=100 crop="center"  as image %}
+                               <img style="padding: 10px" src="{{ image.url}}" alt="Avatar" class="pull-left">
                                 {% endthumbnail %}
+              <p>{{article.writer.talent.all|join:" / "}}</p>
+
           <a class="teacher-name" href="#"> {{ article.writer }}  </a>
+              <p class="abs"> {{ article.writer.about}} </p><div class="clearfix"></div>
 
 
 
-
-          <img src={{ .url }} >
-          <p>{{article.writer.talent.all|join:" / "}}</p>
-          <p class="abs"> {{ article.writer.about}} </p>
         </div>
-        <h4>نظرات</h4>
-{#          {% render_partial 'article_module.views.comment_component' %}#}
-
-        <h4>ارسال دیدگاه</h4>
-
-
-<!--          <div class="container success">-->
-<!--         <form method="post" class="contact">-->
-<!--        {% csrf_token %}-->
-<!--      <div class="row">-->
-<!--        <div class="col-sm-4">-->
-<!--            {{ form.full_name.label_tag }}-->
-<!--            {{ form.full_name }}-->
-<!--            {{ form.full_name.errors }}-->
-<!--        </div>-->
-<!--        <div class="col-sm-4">-->
-<!--            {{ form.email.label_tag }}-->
-<!--            {{ form.email }}-->
-<!--            {{ form.email.errors }}-->
-<!--        </div>-->
-<!--      </div>-->
-<!--        <div class="col-md-8 pull-left ">-->
-<!--            {{ form.message.label_tag }}-->
-<!--            {{ form.message }}-->
-<!--            {{ form.message.errors }}-->
-<!--      </div>-->
-<!--      <div class="row clearfix">-->
-<!--        <div class="col-md-12">-->
-
-<!--            <button type="submit" name="submit" class="greybutton">ارسال</button>-->
-<!--        </div>-->
-<!--      </div></form>-->
-<!--        </div>-->
-<!--      </div>-->
+{#        <h4>نظرات</h4>#}
+{#      #}
+{#        <h4>ارسال دیدگاه</h4>#}
+{#        #}
+{#<!--          <div class="container success">-->#}
+{#<!--         <form method="post" class="contact">-->#}
+{#<!--        {% csrf_token %}-->#}
+{#<!--      <div class="row">-->#}
+{#<!--        <div class="col-sm-4">-->#}
+{#<!--            {{ form.full_name.label_tag }}-->#}
+{#<!--            {{ form.full_name }}-->#}
+{#<!--            {{ form.full_name.errors }}-->#}
+{#<!--        </div>-->#}
+{#<!--        <div class="col-sm-4">-->#}
+{#<!--            {{ form.email.label_tag }}-->#}
+{#<!--            {{ form.email }}-->#}
+{#<!--            {{ form.email.errors }}-->#}
+{#<!--        </div>-->#}
+{#<!--      </div>-->#}
+{#<!--        <div class="col-md-8 pull-left ">-->#}
+{#<!--            {{ form.message.label_tag }}-->#}
+{#<!--            {{ form.message }}-->#}
+{#<!--            {{ form.message.errors }}-->#}
+{#<!--      </div>-->#}
+{#<!--      <div class="row clearfix">-->#}
+{#<!--        <div class="col-md-12">-->#}
+{##}
+{#<!--            <button type="submit" name="submit" class="greybutton">ارسال</button>-->#}
+{#<!--        </div>-->#}
+{#<!--      </div></form>-->#}
+{#<!--        </div>-->#}
+{#<!--      </div>-->#}
     </form>
       </div>
+
       <div class="col-lg-3 blog-sidebar">
         <div class="search-something">
           <input type="search" placeholder="دنبال چه چیزی هستید؟">
