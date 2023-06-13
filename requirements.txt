@@ -23,3 +23,4 @@ tzdata==2023.3
 ua-parser==0.16.1
 user-agents==2.2.0
 wheel==0.40.0
+django-comments-dab==2.8.0
