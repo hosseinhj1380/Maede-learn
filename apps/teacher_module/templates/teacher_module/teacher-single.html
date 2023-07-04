@@ -7,7 +7,7 @@
 <body id="teacher-single" class="page">
 
 <main>
-  {% for teacher in teachers %}
+  
   <div class="container teacher-page">
     <div class="row">
       <div class="col-sm-3 text-center float-right"> <img src={{ teacher.Image.url }} alt="Avatar" class="teacher-avatar">
@@ -61,7 +61,7 @@
           <p><span class="lessons"><i class="zmdi zmdi-assignment"></i>4 درس</span><span class="duration"><i class="zmdi zmdi-time"></i>8:25 ساعت</span></p>
           <p class="abs">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که.</p>
           <a href="#" class="greybutton">نمایش دوره</a> </div> {% endcomment %}
-          {% endfor %}
+          {% comment %} {% endfor %} {% endcomment %}
       </div>
     </div>
   </div>
