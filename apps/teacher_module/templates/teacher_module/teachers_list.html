@@ -1,0 +1,337 @@
+
+{% extends "shared/index.html" %}{% load render_partial %}
+
+{% block title %}
+    مدرسین
+{% endblock %}
+{% block body %}
+
+
+
+<body id="blog-2" class="page">
+<main>
+  <div class="page-heading text-center">
+    <h2>مدرسین ما</h2>
+  </div>
+  <div class="container teachers-browse pros">
+    <div class="row toolbar">
+      <div class="col-md-4 col-sm-6 col-xs-12 select-categories">
+        <select class="jquery-select">
+          <option>انتخاب دسته بندی</option>
+          <option value="1">دسته بندی اول</option>
+          <option value="2">دسته بندی دوم</option>
+          <option value="3">دسته بندی سوم</option>
+        </select>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12 select-numofvids">
+        <select class="jquery-select">
+          <option>تعداد ویدیو ها</option>
+          <option value="1">2</option>
+          <option value="2">4</option>
+          <option value="3">8</option>
+        </select>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12 select-name">
+        <select class="jquery-select">
+          <option>نام</option>
+          <option value="1">نام 1</option>
+          <option value="2">نام 2</option>
+          <option value="3">نام 3</option>
+        </select>
+      </div>
+      <div class="col-sm-6 col-xs-12 text-keywords float-right">
+        <input class="keywords" name="keywords" type="text" placeholder="کلمات کلیدی">
+      </div>
+      <div class="col-sm-6 col-xs-12 search-button float-left">
+        <button class="search-teachers">جستجو</button>
+      </div>
+    </div>
+    {% for teacher in teachers%}
+    <div class="container">
+    <div class="row text-center">
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+      
+          <div class="imgcontainer"> <img src={{ teacher.Image.url }} alt="Avatar">
+          
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+
+              <p>{{teacher.NumberofCorses}} ویدیو</p>
+            </div>
+          </div>
+          <a href="{% url "teacher:teachers" teacher.slug  %}">{{teacher.Full_name}}</a>
+          <p>{{ teacher.talent }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+      {% comment %} <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/2.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">امیر جهاندوست</a>
+          <p>طراح</p>
+        </div>
+      </div> {% endcomment %}
+      {% comment %} <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/3.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">احمد بازرگان</a>
+          <p>مدرس زبان</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/4.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">مهسا سلیمی</a>
+          <p>مدیر بازاریابی</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/5.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">فاطمه سیفی</a>
+          <p>توسعه دهنده</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/6.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">علی مهری</a>
+          <p>نقاش دیجیتال</p>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/7.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">آناهیتا قربانی</a>
+          <p>متفکر</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/8.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">پریسا فلاح</a>
+          <p>وبلاگ نویس</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/9.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">غلام عباسی</a>
+          <p>نویسنده</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/3.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">حامد بازرگان</a>
+          <p>مدرس زبان</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/4.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">اعظم مظفری</a>
+          <p>مدیر تبلیغات</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/6.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">حمید جهانبخش</a>
+          <p>سئو کار</p>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/1.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">رضا موحد</a>
+          <p>پزشک</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/2.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">امیر جهاندوست</a>
+          <p>طراح</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/3.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">احمد بازرگان</a>
+          <p>مدرس زبان</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/4.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">مهسا سلیمی</a>
+          <p>مدیر بازاریابی</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/5.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">فاطمه سیفی</a>
+          <p>توسعه دهنده</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/6.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">علی مهری</a>
+          <p>نقاش دیجیتال</p>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/7.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">آناهیتا قربانی</a>
+          <p>متفکر</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/8.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">پریسا فلاح</a>
+          <p>وبلاگ نویس</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/9.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">غلام عباسی</a>
+          <p>نویسنده</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/3.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">حامد بازرگان</a>
+          <p>مدرس زبان</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/4.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">اعظم مظفری</a>
+          <p>مدیر تبلیغات</p>
+        </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+        <div class="teacher">
+          <div class="imgcontainer"> <img src="assets/img/avatar/6.png" alt="Avatar">
+            <div class="overlay"> <img src="assets/img/profile.png" alt="Profile">
+              <p>8 ویدیو</p>
+            </div>
+          </div>
+          <a href="#">حمید جهانبخش</a>
+          <p>سئو کار</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center">
+    <div class="col-xs-12">
+      <div class="paginations"> <a class="prev" href="#"><i class="zmdi zmdi-chevron-left"></i>قبلی</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">6</a> <a class="next" href="#">بعدی<i class="zmdi zmdi-chevron-right"></i></a> </div>
+    </div>
+  </div>
+</main> {% endcomment %}
+
+
+{% endblock %}

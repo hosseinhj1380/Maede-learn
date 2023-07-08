@@ -25,12 +25,12 @@ class User(AbstractUser):
             return self.get_full_name()
         return self.email
     
-    def save(self):
-        super().save()  # saving image first
+    # def save(self):
+    #     super().save()  # saving image first
 
-        img = Image.open(self.avatar.path) # Open image using self
+    #     img = Image.open(self.avatar.path) # Open image using self
 
-        if img.height > 150 or img.width > 150:
-            new_img = (150, 150)
-            img.thumbnail(new_img)
-            img.save(self.avatar.path)
+    #     if img.height > 150 or img.width > 150:
+    #         new_img = (150, 150)
+    #         img.thumbnail(new_img)
+    #         img.save(self.avatar.path)
