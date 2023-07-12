@@ -1270,22 +1270,7 @@ h3 + p {
 	line-height: 20px;
 }
 .index-3-categories .cat1 {
-	background-image: url("../img/categories-bg/1.jpg");
-}
-.index-3-categories .cat2 {
-	background-image: url("../img/categories-bg/6.jpg");
-}
-.index-3-categories .cat3 {
-	background-image: url("../img/categories-bg/2.jpg");
-}
-.index-3-categories .cat4 {
-	background-image: url("../img/categories-bg/3.jpg");
-}
-.index-3-categories .cat5 {
-	background-image: url("../img/categories-bg/4.jpg");
-}
-.index-3-categories .cat6 {
-	background-image: url("../img/categories-bg/5.jpg");
+	background: #12c6fa;
 }
 .index-3-categories .category-with-bg {
 	background-size: cover;
@@ -1310,8 +1295,8 @@ h3 + p {
 	display: inline-block;
 	padding: 0 12px;
 	line-height: 18px;
-	color: #fff;
-	background-color: #12c8fc;
+	color: #3a3a3a;
+	background-color: #ffffff;
 	border-radius: 12px;
 	opacity: 0;
 	transition: opacity 0.3s ease;

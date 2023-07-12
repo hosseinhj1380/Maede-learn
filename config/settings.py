@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'apps.teacher_module',
      #external
     'sorl.thumbnail',
-    'comment'
+
 ]
 
 MIDDLEWARE = [

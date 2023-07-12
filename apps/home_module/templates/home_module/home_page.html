@@ -38,48 +38,40 @@
   </div>
   <div class="container index-3-categories text-center">
     <div class="row">
-      <div class="col-sm-10 col-sm-offset-1">
+      <div class="col-md-12">
         <h3>برترین آموزش های تصویری مائده لرن را کاوش کنید</h3>
-        <p> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. </p>
       </div>
-    </div>
+
     <div class="row text-center">
-      <div class="col-md-4 col-sm-6">
+      {% for courses in most_viewed %}
+        <div class="col-md-6 ">
         <div class="category-with-bg cat1">
-          <h5>سیستم مدیریت محتوا (CMS)</h5>
-          <p>آموزش برای سیستم های مختلف مثل وردپرس</p>
-          <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
+          <h5>{{ courses.name }}</h5>
+          <p>{{ courses.short_description }}</p>
+          <a href="{% url "course:courses_detail" courses.slug %}" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
       </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="category-with-bg cat2">
-          <h5>واسط کاربری / طراح UX</h5>
-          <p>کارگاه طراحی UX</p>
-          <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
+      {% endfor %}
+
+
+    </div>
+  </div>
+
+
+      <div class="col-md-12">
+        <h3>جدیدترین آموزش ها</h3>
       </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="category-with-bg cat3">
-          <h5>تایپوگرافی و نویسندگی</h5>
-          <p>کار با ایندیزاین</p>
-          <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
+
+    <div class="row text-center">
+      {% for courses in latest_products %}
+        <div class="col-md-6 ">
+        <div class="category-with-bg cat1">
+          <h5>{{ courses.name }}</h5>
+          <p>{{ courses.short_description }}</p>
+          <a href="{% url "course:courses_detail" courses.slug %}" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
       </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="category-with-bg cat4">
-          <h5>ناشر الکترونیکی</h5>
-          <p>یادبگیرید چگونه آنلاین نشر کنید</p>
-          <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="category-with-bg cat5">
-          <h5>لایه ها برای پرینت طراحی</h5>
-          <p>ایلستریتور برای طراحی</p>
-          <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
-      </div>
-      <div class="col-md-4 col-sm-6">
-        <div class="category-with-bg cat6">
-          <h5>سئو (SEO)</h5>
-          <p>بهینه سازی برای موتور های جستجو</p>
-          <a href="#" class="goto"><i class="zmdi zmdi-long-arrow-right"></i></a> </div>
-      </div>
+      {% endfor %}
+
+
     </div>
   </div>
 

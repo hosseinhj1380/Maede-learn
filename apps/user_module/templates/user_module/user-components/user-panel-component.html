@@ -1,9 +1,8 @@
-<div class="col-md-4 pull-right ">
-                <ul class="list-group">
-                    <li class="list-group-item"><a href=""><h6>پنل کاربری</h6></a></li>
-                    <li class="list-group-item"><a href=""><h6>سبد خرید</h6></a></li>
-                    <li class="list-group-item"><a href=""><h6>تغییر رمز عبور</h6></a></li>
-                    <li class="list-group-item"><a href="{% url "user:edit-user-panel" %}"><h6>ویرایش اطلاعات کاربری</h6></a></li>
-                </ul>
 
-            </div>
+<div class="list-group list-group-light">
+   <a href="{% url "user:user-panel" %}" class="list-group-item list-group-item-action px-3 border-0 active" aria-current="true">
+    پنل کاربری</a>
+  <a href="{% url "user:edit-user-password" %}" class="list-group-item list-group-item-action px-3 border-0 ripple">تغییر رمز عبور</a>
+  <a href="{% url "user:edit-user-panel" %}" class="list-group-item list-group-item-action px-3 border-0 ripple">ویرایش اطلاعات کاربری</a>
+  <a href="#" class="list-group-item list-group-item-action px-3 border-0 ripple">سبد خرید</a>
+</div>

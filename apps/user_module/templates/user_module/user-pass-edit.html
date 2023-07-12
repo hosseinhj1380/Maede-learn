@@ -1,0 +1,39 @@
+{% extends 'shared/index.html' %}
+{%  load render_partial %}
+{% block title %}
+    تغییر رمز عبور کاربری
+{% endblock %}
+
+{% block header_slider %}
+<body id="contact" class="page">
+{% endblock %}
+{% block body %}
+    <div class="container success ">
+                <div class="row">
+        <div class="col-md-4">
+            <a href="" class="thumbnail">
+                <img src="{{ user.avatar.url }}" alt="">
+            </a>
+        {% render_partial "apps.user_module.views.user_panel_components" %}
+        </div>
+                <div class="container success">
+
+    <form method="post" action="{%  url "user:edit-user-password" %}" class="contact">
+        {% csrf_token %}
+      <div class="row">
+                <div class="col-sm-8 ">
+                    <h4 >ویرایش رمز عبور </h4>
+
+                             {% csrf_token %}
+                            {{ edit_form }}
+
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="pull-right">
+            <button type="submit" name="submit" class="greybutton" >ویرایش</button>
+          </div>
+        </div>
+      </div>
+                </div>
+  </div>
+{% endblock %}

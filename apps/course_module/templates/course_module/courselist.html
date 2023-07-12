@@ -1,21 +1,65 @@
 {% extends 'shared/index.html' %}
+{% load thumbnail %}
 
 {% block title %}
 لیست دوره ها
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row">
+   <body id="courses-sidebar" class="page">
 
-    {% for items in courses %}
-        <h3>{{ items.name }}</h3>
-         <h2>قیمت : {{ items.price }} تومن</h2>
-        <img src="{{ items.image.url }}" alt="">
-        <h2>{{ items.description }}</h2>
-    {% endfor %}
-        </div>
+<main>
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2>دوره ها</h2>
     </div>
+  </div>
+  <div class="container courses-browse popular">
+    <div class="row tutorials">
+      <div class="col-sm-3 ">
+        <aside class="categories">
+          <h6>دسته بندی ها</h6>
+          <ul>
+            {% for category in categories %}
+                 <li><a href="{% url 'course:courses_list_by_cat' category.url_title %}">{{ category.title }} ({{ category.product_categories }})</a></li>
+            {% endfor %}
+            
+
+          </ul>
+        </aside>
+        <div class="start-today">
+          <p class="price">59</p>
+          <p class="readytostart">آیا برای شروع<br>
+            یادگیری آماده اید؟</p>
+          <a href="#">همین الان ثبت نام کنید</a> </div>
+      </div>
+      <div class="col-sm-9">
+            <div class="row">
+         {% for course in courses %}
+             <div class="col-sm-4">
+            <div class="tutorial"> {% thumbnail course.image "400x300" quality=95 as image %}
+                <img src="{{ image.url }}" class="resp-img" alt="Tutorial"> {% endthumbnail %}
+              <div class="tutorial-details">
+                <h6>{{ course.name }}</h6>
+                <p><span class="lessons"><i class="zmdi zmdi-assignment"></i>{{ course.lessons }} درس</span><span class="duration"><i class="zmdi zmdi-time"></i>{{ course.course_length }}hr</span></p>
+                <p class="abs">{{ course.short_description }}</p>
+                <a href="{% url "course:courses_detail" course.slug %}" class="greybutton">نمایش دوره</a> </div>
+            </div>
+          </div>
+         {% endfor %}
+
+
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-xs-12">
+        <div class="paginations"> <a class="prev" href="#"><i class="zmdi zmdi-chevron-right"></i>قبلی</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">6</a> <a class="next" href="#">بعدی<i class="zmdi zmdi-chevron-left"></i></a> </div>
+      </div>
+    </div>
+  </div>
+</main>
 
 
 {% endblock %}

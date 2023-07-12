@@ -6,7 +6,8 @@ from django.utils.crypto import get_random_string
 from django.views.generic import CreateView
 from django.views.generic.base import View, TemplateView
 from utils.email_service import send_mail
-from apps.user_module.forms import RegisterForm, LoginForm, ForgetPassForm, ResetPasswordForm, EditPanelForm
+from apps.user_module.forms import RegisterForm, LoginForm, ForgetPassForm, ResetPasswordForm, EditPanelForm, \
+    EditPasswordForm
 from apps.user_module.models import User
 
 
@@ -22,14 +23,51 @@ def user_panel_components(request):
 
 class EditUserPanelView(View):
     def get(self,request):
-        form = EditPanelForm()
+        current_user :User = User.objects.filter(id=request.user.id).first()
+        form = EditPanelForm(instance=current_user)
         context = {
-            "form": form
+            "form": form ,
+            "user" : current_user
         }
         return render(request, "user_module/edit-user-panel.html",context)
 
     def post(self,request):
-        return render(request, "user_module/edit-user-panel.html", {})
+        current_user: User = User.objects.filter(id=request.user.id).first()
+        form = EditPanelForm(request.POST , request.FILES ,instance=current_user)
+        if form.is_valid():
+            form.save(commit=True)
+
+
+        context = {
+            "form": form,
+            "user": current_user
+        }
+        return render(request, "user_module/edit-user-panel.html", context)
+
+class EditUserPasswordView(View):
+    def get(self,request):
+        edit_form = EditPasswordForm()
+        current_user : User = User.objects.filter(id = request.user.id).first()
+        context = {
+            "current_user" : current_user ,
+            "edit_form" : edit_form
+        }
+        return render(request, 'user_module/user-pass-edit.html' , context)
+
+    def post(self,request):
+        edit_form = EditPasswordForm(request.POST)
+        current_user: User = User.objects.filter(id=request.user.id).first()
+        context = {
+            "current_user": current_user,
+            "edit_form": edit_form }
+        if edit_form.is_valid():
+            if current_user.check_password(edit_form.cleaned_data.get("current_password")):
+                current_user.set_password(edit_form.cleaned_data.get("password"))
+                current_user.save()
+                return redirect(reverse("user:login"))
+            else :
+                edit_form.add_error("current_password" , 'رمز عبور به درستی وارد نشده است ')
+        return render(request, 'user_module/user-pass-edit.html', context)
 class RegisterView(View):
 
     def get(self, request):

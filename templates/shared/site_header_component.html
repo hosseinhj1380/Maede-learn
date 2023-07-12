@@ -15,25 +15,19 @@
             <ul>
               <li class="active"> <a href="{% url "home:home_page" %}">خانه</a>
               </li>
-                  <li> <a href="#">دوره های آنلاین</a>
-                <ul class="submenu submenu-list">
-                      <li><a href="#">همه دوره ها (817)</a></li>
-                      <li><a href="#">کسب و کار ها (18)</a></li>
-                      <li><a href="#">سیستم مدیریت محتوا (14)</a></li>
-                      <li><a href="#">طراحی (17)</a></li>
-                      <li><a href="#">توسعه (23)</a></li>
-                      <li><a href="#">علوم انسانی (19)</a></li>
-                    </ul>
-
-              <li> <a href="#">پشتیبانی</a>
+                <li> <a href="">پشتیبانی</a>
                 <ul class="submenu submenu-list">
                   <li><a href="{% url "backup:info-page" %}">چگونه کار میکند</a></li>
                   <li><a href="pricing.html">قیمت ها</a></li>
                   <li><a href="services-1.html">خدمات </a></li>
-                  <li><a href="{% url "teacher:teachers-list" %}">مدرسین</a></li>
+                  <li><a href="teachers-list/<slug:slug>">مدرسین</a></li>
 
                   <li><a href="{% url "article:article-list" %}">مقالات</a></li>
                 </ul>
+                  <li> <a href="{% url 'course:courses_list' %}">دوره های آنلاین</a>
+
+
+
               </li>
               <li><a href="{% url "contact:contact-us" %}">تماس با ما</a></li>
             </ul>

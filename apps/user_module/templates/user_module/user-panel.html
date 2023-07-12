@@ -7,9 +7,12 @@ User Panel
     <body id="contact" class="page">
 {% endblock %}
 {% block body %}
-    <div class="container">
-        <div class="row">
-            {% render_partial "apps.user_module.views.user_panel_components" %}
-        </div>
-    </div>
+   <div class="container success ">
+                <div class="row">
+        <div class="col-md-4">
+            <a href="" class="thumbnail">
+                <img src="{{ user.avatar.url }}" alt="">
+            </a>
+        {% render_partial "apps.user_module.views.user_panel_components" %}
+        </div></div></div>
 {% endblock %}

@@ -84,15 +84,14 @@ class ResetPasswordForm(forms.Form):
 class EditPanelForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'avatar', 'username','number']
+        fields = ['first_name', 'last_name', 'username','number','avatar']
+        username = forms.CharField(widget=forms.TextInput(attrs= {
+            'class': "login-form",
+            'placeholder': "نام کاربری  ",
+            'name': 'name',
+            'type': "text"
+        }))
         widgets = {
-            'username': forms.TextInput(attrs={
-                'class': "req",
-                'placeholder': "نام کاربری  ",
-                'name': 'email',
-                'type': "email",
-
-            }),
             'first_name': forms.TextInput( attrs={
                 'class': "req",
                 'placeholder': "نام  ",
@@ -112,6 +111,7 @@ class EditPanelForm(forms.ModelForm):
                 'name': 'text',
                 'type': "text"
             }),
+            "avatar" : forms.FileInput()
 
 
 
@@ -124,3 +124,27 @@ class EditPanelForm(forms.ModelForm):
             'avatar' : 'آواتار',
 
         }
+
+
+class EditPasswordForm(forms.Form):
+    current_password = forms.CharField(
+        label='رمز عبور فعلی ',
+        widget=forms.PasswordInput(attrs={
+            'class': 'signup-form',
+            'type': "password",
+            'placeholder': "رمـز عبـور فعلی ",
+        }))
+    password = forms.CharField(
+        label='رمز عبور',
+        widget=forms.PasswordInput(attrs={
+            'class': 'signup-form',
+            'type': "password",
+            'placeholder': "رمـز عبـور",
+        }))
+    confirm_password = forms.CharField(
+        label='تایید رمز عبور',
+        widget=forms.PasswordInput(attrs={
+            'class': 'signup-form',
+            'type': "password",
+            'placeholder': "تایید رمـز عبـور",
+        }))
