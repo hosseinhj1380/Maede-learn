@@ -55,8 +55,21 @@
     </div>
     <div class="row text-center">
       <div class="col-xs-12">
-        <div class="paginations"> <a class="prev" href="#"><i class="zmdi zmdi-chevron-right"></i>قبلی</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a> <a href="#">6</a> <a class="next" href="#">بعدی<i class="zmdi zmdi-chevron-left"></i></a> </div>
-      </div>
+<div class="paginations">
+
+            {% if page_obj.has_previous %}
+                <a class="prev" href="?page={{ page_obj.previous_page_number }}"><i class="zmdi zmdi-chevron-right"></i>قبلی</a>
+            {% endif %}
+
+           {% for page in paginator.page_range %}
+            <a href="?page={{ page }}" class="{% if page_obj.number == page %} active {% endif %}" >{{ page }}</a>
+           {% endfor %}
+
+
+           {% if page_obj.has_next %}
+             <a class="next" href="?page={{ page_obj.next_page_number }}">بعدی<i class="zmdi zmdi-chevron-left"></i></a> </div>
+           {% endif %}
+      </div>      </div>
     </div>
   </div>
 </main>

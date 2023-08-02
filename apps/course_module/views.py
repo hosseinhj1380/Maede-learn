@@ -53,4 +53,6 @@ class CourseDetailView(DetailView):
         if not has_been_visited:
             new_visit = CourseVisit(ip=user_ip,user_id=user_id, course_id=course.id)
             new_visit.save()
+        context['categories'] = CourseCategory.objects.annotate(product_categories=Count('course')).filter(
+            is_delete=False, is_active=True).order_by('-product_categories')
         return context

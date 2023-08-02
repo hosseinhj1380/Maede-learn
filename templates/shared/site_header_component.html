@@ -15,15 +15,15 @@
             <ul>
               <li class="active"> <a href="{% url "home:home_page" %}">خانه</a>
               </li>
-                <li> <a href="">پشتیبانی</a>
-                <ul class="submenu submenu-list">
-                  <li><a href="{% url "backup:info-page" %}">چگونه کار میکند</a></li>
-                  <li><a href="pricing.html">قیمت ها</a></li>
-                  <li><a href="services-1.html">خدمات </a></li>
-                  <li><a href="teachers-list/<slug:slug>">مدرسین</a></li>
+                <li> <a href="{% url "article:article-list" %}">مقالات</a>
+{#                <ul class="submenu submenu-list">#}
+{#                  <li><a href="{% url "backup:info-page" %}">چگونه کار میکند</a></li>#}
+{#                  <li><a href="pricing.html">قیمت ها</a></li>#}
+{#                  <li><a href="services-1.html">خدمات </a></li>#}
+{#                  <li><a href="teachers-list/<slug:slug>">مدرسین</a></li>#}
 
-                  <li><a href="{% url "article:article-list" %}">مقالات</a></li>
-                </ul>
+{#                  <li><a href="{% url "article:article-list" %}">مقالات</a></li>#}
+{#                </ul>#}
                   <li> <a href="{% url 'course:courses_list' %}">دوره های آنلاین</a>
 
 

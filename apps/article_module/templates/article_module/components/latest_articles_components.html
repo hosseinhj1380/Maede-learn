@@ -1,0 +1,9 @@
+{% load thumbnail %}
+{% for latest_article in latest_articles %}
+    <div class="recent-post clearfix"> {% thumbnail latest_article.image  "100x100" quality=95  crop="center" as image %}
+    <img src="{{ image.url }}" alt="recent" class="pull-left"> {% endthumbnail %}
+    <a href="{% url "article:article-detail" latest_article.slug %}">{{ latest_article.title }}</a>
+    <div class="author"> <a href="">{{ latest_article.writer }}</a><span>{{ latest_article.date }}</span> </div>
+
+</div>
+{% endfor %}

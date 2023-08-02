@@ -29,12 +29,9 @@ class Article(models.Model):
     text = models.TextField(verbose_name="متن")
     image = models.ImageField(upload_to="article-images")
     is_active = models.BooleanField(default=True, verbose_name="فعال/غیرفعال")
-
-    comment = models.ForeignKey('Comments', null=True, blank=True, on_delete=models.CASCADE, verbose_name='کامنت ها ')
     writer = models.ForeignKey(User, verbose_name="نام نویسنده ", on_delete=models.CASCADE)
     date = models.DateField(null=False, blank=False, auto_now=True, verbose_name="تاریخ مقاله")
 
-    # writer=models.CharField(max_length=255,null=False,verbose_name="نام و نام خانوادگی نویسنده ",default=None)
     def __str__(self):
         return self.title
 
@@ -42,21 +39,6 @@ class Article(models.Model):
         verbose_name = " مقاله"
         verbose_name_plural = "مقالات"
 
-
-# class Comments (models.Model):
-#     blog=models.ForeignKey(Article,null=True,blank=True,on_delete=models.CASCADE,verbose_name='مقاله مربوطه  ')
-#     full_name = models.CharField(max_length=50,null=False,verbose_name='نام ')
-#     email = models.EmailField(verbose_name='ایمیل')
-#     message = models.TextField(max_length=500,null=False,verbose_name='پیام ')
-#
-#     # title = models.ForeignKey(ArticleCategory,null=False,blank=False,on_delete=models.CASCADE,default=None)
-#
-#     def __str__(self):
-#         return self.full_name
-#
-#     class Meta:
-#         verbose_name = " کامنت"
-#         verbose_name_plural = "کامنت ها"
 
 class Comments(models.Model):
     blog = models.ForeignKey(Article, null=True, blank=True, on_delete=models.CASCADE, verbose_name='مقاله مربوطه  ')
@@ -72,3 +54,8 @@ class Comments(models.Model):
     class Meta:
         verbose_name = " کامنت"
         verbose_name_plural = "کامنت ها"
+
+
+
+
+

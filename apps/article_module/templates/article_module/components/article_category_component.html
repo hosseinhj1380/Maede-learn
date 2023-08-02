@@ -1,0 +1,9 @@
+        <div class="categories">
+          <h6>دسته بندی ها</h6>
+          <ul>
+         {% for category in categories %}
+               <li><a href="{% url "article:article-list-by-category" category.title %}">{{ category }} ({{ category.aricle_count }})</a></li>
+         {% endfor %}
+
+          </ul>
+        </div>

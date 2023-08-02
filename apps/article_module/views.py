@@ -1,3 +1,5 @@
+from django.db.models import Count
+from django.http import HttpRequest
 from django.shortcuts import render
 from django.views import View
 from django.views.generic import DetailView,FormView,CreateView
@@ -14,14 +16,18 @@ from ..user_module.models import User
 
 class ArticlesView(ListView):
     template_name = 'article_module/articles_page.html'
-    paginate_by = 3
+    paginate_by = 1
     context_object_name = "article"
     model = Article
+    ordering = "date"
 
     def get_queryset(self):
         data = super(ArticlesView, self).get_queryset()
-        articles_data = data.filter(is_active=True)
-        return articles_data
+        this_category = self.kwargs.get('category')
+        if this_category is not None :
+            data = data.filter(selected_categories__title__iexact=this_category)
+        data = data.filter(is_active=True).order_by('date')
+        return data
 
 
 class ArticleDetailView(DetailView):
@@ -37,4 +43,18 @@ class ArticleDetailView(DetailView):
         return context
 
 
+def article_categories_component(request:HttpRequest):
+    categories = ArticleCategory.objects.filter(is_active=True, parent=None).annotate(
+        aricle_count=Count("article"))
+    context = {
+        'categories' : categories
 
+    }
+    return render(request,"article_module/components/article_category_component.html",context)
+
+def latest_articles_components(request:HttpRequest):
+    articles : Article = Article.objects.filter(is_active=True).order_by('-date')[:5]
+    context = {
+        'latest_articles' : articles
+    }
+    return render(request, "article_module/components/latest_articles_components.html", context)
