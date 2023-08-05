@@ -15,7 +15,7 @@
         {% for slider in sliders.slidergallery.all %}
 
     <li>
-    {% thumbnail slider.images "2080x800" quality=100 crop="bottom"  as image %}
+    {% thumbnail slider.images "2080x800" quality=100 crop="center"  as image %}
                                <img src="{{ image.url}}" class="resp-img" alt="Slider">
                                 {% endthumbnail %}</li>
         {% endfor %}
