@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-r&_1@dqbqr9qo6w*%kb$%q&zzxkv&1ba18#zw+f57rk&6)yye!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["http://127.0.0.1:8000/"]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -87,14 +87,21 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'maedelearn', 
+#         'USER': 'root',
+#         'PASSWORD': 'kC8u4Uyr8ZVDyRLAUmTgcZ1G',
+#         'HOST': 'luca.iran.liara.ir', 
+#         'PORT': '30034',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'maedelearn', 
-        'USER': 'root',
-        'PASSWORD': 'kC8u4Uyr8ZVDyRLAUmTgcZ1G',
-        'HOST': 'luca.iran.liara.ir', 
-        'PORT': '30034',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "mydatabase",
     }
 }
 

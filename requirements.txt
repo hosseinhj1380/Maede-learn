@@ -25,9 +25,7 @@ user-agents==2.2.0
 wheel==0.40.0
 django-comments-dab==2.8.0
 djangorestframework
-<<<<<<< HEAD
 psycopg2
-=======
 psycopg
 psycopg2
->>>>>>> 83ce8e1ff3621f9ff2a58d1d68ef033cd3455751
+
